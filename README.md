@@ -49,6 +49,7 @@ INCOG is designed to run on Docker and can be deployed via `docker-compose`.
 	* *OPTIONAL*: `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY` set AccessKey of IAM user if you can't set an EC2 IAM role which is the preferred method 
 	* *OPTIONAL*: `MEMCACHE_HOST`,`MEMCACHE_PORT` - if you're using your custom Memcache server.
 	* *OPTIONAL*: `MEMCACHE_SECRET_LIFESPAN` - if you want to change the default secret lifespan of 24hours.
+	* *RECOMMENDED*: `FLASK_SECRET_KEY` - Random string used by flask to sign session. To generate a Random string - `python -c 'import os; print(os.urandom(16))'`
 * Configure required values under `deploy/config/incog-nginx.env`
 	* *REQUIRED*: `INCOG_HOST` - Name of the domain you want to serve INCOG via. (Don't include http/https)
 * Import your TLS certificate and key under `deploy` folder and name it as `incog.cert` & `incog.key` respectively.
