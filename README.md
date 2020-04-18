@@ -56,6 +56,10 @@ INCOG is designed to run on Docker and can be deployed via `docker-compose`.
 * Deploy INCOG - `docker-compose -f deploy/docker-compose.yaml up -d --build` and verify if all 3 processes (frontend, incog, memcache) are up via `docker ps`.
 * You can now start using INCOG via: `https://<INCOG_HOST>` on your favorite browser.
 
+##### To stop INCOG:
+
+Run - `cd deploy && docker-compose down`
+
 ## Specifications
 
 INCOG uses the following tech stack:
