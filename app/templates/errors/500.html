@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Server error.{% endblock %}</h1>
+{% endblock %}
+
+{% block app_content %}
+<div class="panel panel-danger">
+    <div class="panel-heading"><h3 class="panel-title">Uh oh...</h3></div>
+    <div class="panel-body">
+      <p>Something went wrong while processing in the server end.</p>
+    </div>
+</div>
+{% endblock %}

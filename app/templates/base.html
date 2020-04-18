@@ -1,0 +1,30 @@
+{% extends "bootstrap/base.html" %}
+<title>{% block title %}{% endblock %} - INCOG</title>
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.css') }}">
+{% endblock %}
+{% block navbar %}
+<div class="navbar navbar-inverse">
+  <div class="container">
+      <div class="navbar-header"><a class="navbar-brand" hreg="#">INCOG</a></div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li>
+            <a href="{{ url_for('home.landing') }}">Home</a>
+          </li>
+        </ul>
+      </div>
+  </div>
+</div>
+{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="page-header">
+    {% block header %}{% endblock %}
+  </div>
+  {% for message in get_flashed_messages() %}
+    <div class="alert alert-info">{{ message }}</div>
+  {% endfor %}
+  {% block app_content %}{% endblock %}
+</div>
+{% endblock %}

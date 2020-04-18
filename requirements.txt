@@ -1,0 +1,8 @@
+flask==1.1.2
+flask-wtf==0.14.3
+flask-bootstrap==3.3.7.1
+boto3==1.12.39
+cryptography==2.9
+pymemcache==3.1.0
+botocore==1.15.39
+gunicorn==20.0.4

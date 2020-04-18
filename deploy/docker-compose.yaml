@@ -1,0 +1,30 @@
+version: '3'
+services:
+  memcache:
+    image: memcached
+  incog:
+    build: ../
+    expose:
+      - 8000
+    links:
+      - "memcache:my-memcache"
+    env_file:
+      - config/incog.env
+    depends_on:
+      - memcache
+  frontend:
+    image: nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    links:
+      - "incog:incog"
+    env_file:
+      - config/incog-nginx.env
+    volumes:
+      - ./nginx-template.conf:/etc/nginx/nginx-template.conf
+      - ./incog.key:/etc/ssl/private/incog.key
+      - ./incog.crt:/etc/ssl/certs/incog.crt
+    depends_on:
+      - incog
+    command: /bin/bash -c "envsubst '\$INCOG_HOST' < /etc/nginx/nginx-template.conf > /etc/nginx/nginx.conf && exec nginx -g 'daemon off;'"

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h2>{% block title %}Share your secret{% endblock %}</h2>
+{% endblock %}
+
+{% block app_content %}
+  <form action= "" method="post">
+    {{ form.hidden_tag() }}
+        <p>
+            {{ form.enc_val.label }}<br>
+            {{ form.enc_val(cols="100", rows="10") }}
+        </p>
+        <p>
+            <input type="submit" class="btn btn-lg btn-primary"/>
+        </p>
+  </form>
+{% endblock %}
