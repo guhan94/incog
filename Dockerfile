@@ -11,4 +11,4 @@ RUN useradd -ms /bin/bash incog
 
 USER incog
 
-CMD gunicorn --bind 0.0.0.0:8000 -w 4 app.wsgi:app
+CMD gunicorn --bind 0.0.0.0:8000 -w $(( 2 * `nproc` + 1 )) app.wsgi:app
