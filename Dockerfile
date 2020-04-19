@@ -1,8 +1,9 @@
-FROM python:3-buster
+FROM python:3-slim
+# Remove vulnerable packages https://snyk.io/test/docker/python:3-slim/?severity=high&severity=medium&policy=open&tab=issues
+RUN apt-get --purge -y --allow-remove-essential remove libsqlite3-0 libidn2-0
 
 COPY app /app/
 ADD requirements.txt /app/requirements.txt
-
 RUN pip install -r /app/requirements.txt
 
 EXPOSE 8000
