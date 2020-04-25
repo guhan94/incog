@@ -9,20 +9,21 @@ Even though sharing secrets is not recommended this is not always possible, espe
 * Uses AWS KMS for secret key generation i.e. you host & own the master key.
 * Every secret shared is encrypted using a unique Data Encryption Key (DEK) with `AES-128-CBC`.
 * Secrets storage is ephemeral and not persisted for more than 24hours (which is configurable).
+* Neither of encrypting or decrypting a secret is attributed to an user keeping any activity on INCOG anonymized.
 * Generates unique/random HTTP URL(s) for sharing secrets, hence can be shared via any channel (email, Slack, etc.)
 * Accessible via any browser of your choice. 
 
-3-Easy steps for a secret to be shared:
+#### 3-Easy steps for a secret to be shared:
 
-#### 1. Enter your secret you would like to share
+##### 1. Enter your secret you would like to share
 
 ![enter_secret](./doc/images/incog_enter_secret.png)
 
-#### 2. Share the randomly generated URL with whomsoever you want
+##### 2. Share the randomly generated URL with whomsoever you want
 
 ![share_secret](./doc/images/incog_share_secret.png)
 
-#### 3. Accessing the shared secret
+##### 3. Accessing the shared secret
 
 ![get_secret](./doc/images/incog_get_secret.png)
 
