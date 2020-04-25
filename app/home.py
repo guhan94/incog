@@ -11,7 +11,7 @@ bp = Blueprint('home', __name__, url_prefix='/')
 @bp.route('/', methods=('GET', 'POST'))
 def landing():
     form = EncryptForm()
-    if request.method == 'POST':
+    if request.method == 'POST' and form.validate():
         plain_text = form.enc_val.data
         url = IncogWorkflow().encrypt_user_data(plain_text)
         return redirect(url_for('home.result', encurl=url))

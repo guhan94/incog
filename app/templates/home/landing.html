@@ -14,5 +14,10 @@
         <p>
             <input type="submit" class="btn btn-lg btn-primary"/>
         </p>
+      {% if form.enc_val.errors %}
+            {% for error in form.enc_val.errors %}
+              <div class="alert alert-warning">{{ error }}</div>
+            {% endfor %}
+      {% endif %}
   </form>
 {% endblock %}
